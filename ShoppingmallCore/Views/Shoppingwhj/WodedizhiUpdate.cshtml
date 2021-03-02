@@ -1,0 +1,348 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/layui-v2.5.7/layui/layui.js"></script>
+    <link href="~/layui-v2.5.7/layui/css/layui.css" rel="stylesheet" />
+    <title>WodedizhiUpdate</title>
+</head>
+<body>
+
+
+    <div style="width:100%;height:40px;background-color:black;text-align: center">
+
+        <a style="color: white;margin-left:100px"> 联系电话：400-858-8979</a>
+        <a style="color:white;margin-left:520px">新手指导</a>
+        <a style="color:white ;margin-left:30px" onclick="logins()">登录</a>
+        <a style="color:white ;margin-left:10px">|</a>
+        <a style="color:white ;margin-left:10px" onclick="loginzhuce()">注册</a>
+        <a href="javascript:;" style="color: white;margin-left:30px;">语言切换</a>
+        <dl class="layui-nav-child">
+            <dd><a href=""></a></dd>
+            <dd><a href=""></a></dd>
+            <dd class="layui-this"><a href=""></a></dd>
+            <dd><a href=""></a></dd>
+        </dl>
+    </div>
+
+    <div style="margin-left:20%;margin-top:30px;width:1200px">
+
+        <img src="~/img/login.png" />
+
+        <span style="font-size:35px;color:#ff6a00">代购商城</span>
+        <form class="layui-form" action="">
+            <div class="layui-form-item" style="margin-left:126px;margin-top:-53px;">
+                <div class="layui-input-block">
+                    <input style="border-color:red;width:400px;height:40px;" type="text" name="title" lay-verify="title" autocomplete="off" placeholder="粘贴您要代购商品的链接或输入名称" class="layui-input">
+                    <button type="button" class="layui-btn layui-btn-danger" style="width:80px;height:40px;border-color:red;float:right;margin-right:450px;margin-top:-40px;">去购买</button>
+
+                    <div style="height:70px;float:right;margin-top:-50px;margin-right:200px">
+
+                        <img style="width:70px;width:50px" src="~/img/QQ图片20210224163419.png" />
+                        <div style="width:100px;height:50px;margin-left:49px;margin-top:-40px;">
+                            <span>存在疑问?</span><br />
+                            <span>查询</span><span style="color:#0026ff">在线客服</span>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </form>
+        <span style="margin-left:236px;margin-top:30px;">中国电商商品轻松淘，淘宝、天猫、京东、等平台商品均有返利</span>
+    </div>
+    <div style="background-color:#F0F0F0;height:800px">
+        <div style="text-align: center">
+            <ul class="layui-nav">
+                <li class="layui-nav-item layui-this">
+                    <a href="javascript:;">全部商品分类</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href=""><img src="~/img/男装.png" />男装</a></dd>
+                        <dd><a href=""><img src="~/img/女装.png" />女装</a></dd>
+                        <dd><a href=""><img src="~/img/食品.png" />食品</a></dd>
+                        <dd><a href=""><img src="~/img/箱包配饰.png" />箱包配饰</a></dd>
+                        <dd><a href=""><img src="~/img/内衣.png" />内衣</a></dd>
+                        <dd><a href=""><img src="~/img/文化用品.png" />文化用品</a></dd>
+                        <dd><a href=""><img src="~/img/数码.png" />数码</a></dd>
+                        <dd><a href=""><img src="~/img/美妆个护.png" />美妆个护</a></dd>
+                        <dd><a href=""><img src="~/img/家装家居.png" />家装家居</a></dd>
+                        <dd><a href=""><img src="~/img/鞋靴.png" />鞋靴</a></dd>
+                        <dd><a href=""><img src="~/img/母婴.png" />母婴</a></dd>
+                        <dd><a href="">	<img src="~/img/户外运动.png" />户外运动</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="">代购服务</a></li>
+                <li class="layui-nav-item"><a href="">自营商城</a></li>
+                <li class="layui-nav-item"><a href="">国际转运</a></li>
+                <li class="layui-nav-item"><a href="">运算估算</a></li>
+                <li class="layui-nav-item"><a href="">社区</a></li>
+
+            </ul>
+        </div>
+        <hr style="background-color:red;height:4px;margin-top:0px;margin-bottom:0px;" />
+        <div style="width:230px;background-color:white;height:320px;margin-left:25%;margin-top:10px">
+            <img src="~/img/u546.png" style="width: 230px;height:100px" />
+            <img src="~/img/u547.png" style="width:92px;height:92px;margin-top:-50px;margin-left:70px" />
+
+            <p id="MC"></p>
+            <table style="width:230px;text-align: center">
+                <tr>
+                    <td>帖子</td>
+                    <td>晒单</td>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" class="layui-btn layui-btn-danger layui-btn-radius">晒包裹</button>
+                    </td>
+                    <td>
+                        <button id="h" type="button" class="layui-btn layui-btn-warm layui-btn-radius" onclick="QD()">签到</button>
+                    </td>
+                </tr>
+            </table>
+            <hr />
+        </div>
+        <ul class="layui-nav layui-nav-tree layui-inline" lay-filter="demo" style="width:230px;float:left;margin-left:25%;background-color:white;margin-top:5px">
+            <li class="layui-nav-item"><a href="" style="color:black">我的订单</a></li>
+            <li class="layui-nav-item"><a href="" style="color:black">我的转运</a></li>
+            <li class="layui-nav-item"><a href="http://localhost:61709/Shoppingwhj/Qianbao" style="color:black">我的钱包</a></li>
+            <li class="layui-nav-item"><a href="http://localhost:61709/Shoppingwhj/Shouchang" style="color:black">我的收藏</a></li>
+            <li class="layui-nav-item"><a href="http://localhost:61709/Shoppingwhj/Yubao" style="color:black">货物预报</a></li>
+            <li class="layui-nav-item"><a href="" style="color:black">申请出库</a></li>
+            <li class="layui-nav-item"><a href="http://localhost:61709/Shoppingwhj/CangkuDizhi" style="color:black">仓库地址</a></li>
+            <li class="layui-nav-item"><a href="http://localhost:61709/Shoppingwhj/Wodedizhi" style="color:black">我的地址</a></li>
+        </ul>
+
+        <div style="width:600px;float:left;margin-top:-300px;margin-left:10px">
+            <form action="/" id="froms" enctype="multipart/form-data" method="post">
+
+                <table>
+                    <tr>
+                        <td>收货人</td>
+                        <td>
+                            <input id="txt_ColleName" type="text" name="ColleName" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>所在地区</td>
+                        <td>
+                            <input id="txt_ColleNation" type="text" name="ColleNation" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>详细地址</td>
+                        <td>
+                            <input id="txt_CollenHome" type="text" name="CollenHome" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>邮编</td>
+                        <td>
+                            <input id="txt_CollePostal" type="text" name="CollePostal" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>手机</td>
+                        <td>
+                            <input id="txt_CollePhone" type="text" name="CollePhone" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>固定电话</td>
+                        <td>
+                            <input id="txt_UserPhone" type="text" name="UserPhone" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input id="Button1" type="button" value="修改" onclick="Update()" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        
+    </div>
+    @*最底部*@
+    <div style="width:100%;background-color:black;height:500px;text-align: center;float:left">
+
+        <div>
+            <br /><span style="color: white">	友情链接：	QQor微信：79139426</span>
+            <br />
+            <br />
+        </div>
+        <hr style="background-color:white;height:1px;margin-top:0px;margin-bottom:0px;" />
+        <div style="height:130px">
+            <style>
+                .a1 {
+                    margin-left: 40px;
+                    color: white
+                }
+
+                .a2 {
+                    margin-left: 30px;
+                    color: white
+                }
+            </style>
+            <table style="color:azure;text-align: center" class="table table-borderless">
+                <tr>
+                    <td>客户服务</td>
+                    <td>代购指南</td>
+                    <td>支付方式</td>
+                    <td>配送相关</td>
+                    <td>售后服务</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>帮助中心</td>
+                    <td>代购演示</td>
+                    <td>充值方式</td>
+                    <td>物流运费</td>
+                    <td>商品保管期</td>
+                    <td>联系我们</td>
+                </tr>
+                <tr>
+                    <td>联系我们</td>
+                    <td>服务与费用</td>
+                    <td>PayPal支付</td>
+                    <td>集中打包</td>
+                    <td>验货规则</td>
+                    <td>联系电话 :19866725978</td>
+                </tr>
+                <tr>
+                    <td>专家服务</td>
+                    <td>订单状态</td>
+                    <td>国际信用卡</td>
+                    <td>海关及税项</td>
+                    <td>售后政策</td>
+                    <td>传真号码：0769-82566903</td>
+                </tr>
+                <tr>
+                    <td>商业服务</td>
+                    <td>订单管理</td>
+                    <td>微信支付</td>
+                    <td>收货注意事项</td>
+                    <td>保险及赔偿</td>
+                    <td>详细地址：东莞市寮步镇牛杨村凤凰台路67号</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>退换货服务</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+            <hr />
+            <br /><span style="color: white;text-align: center">	Copyright© 2016-2020. All rights reserved.  粤ICP备16110181号-1 技术支持：QQor微信：791394265</span>
+            <br />
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    layui.use('element', function () {
+        var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+
+        //监听导航点击
+        element.on('nav(demo)', function (elem) {
+            //console.log(elem)
+            layer.msg(elem.text());
+        });
+    });
+</script>
+<script>
+    $(function () {
+        geren();
+        wodeqb();
+    })
+    function geren() {
+        $.ajax({
+            url: "http://localhost:59152/api/Gerenxinxi",
+            data: {},
+            type: "get",
+            contentType: "application/jion",
+            success: function (d) {
+                $("#MC").empty();
+                $(d).each(function () {
+                    var str = '<label style="width:230px;text-align: center">' + this.loginName + '</label>';
+                    $("#MC").append(str);
+                })
+            }
+        })
+    }
+
+    var arr = 200;
+    $("#jf").text(arr);
+    function QD() {
+        $("#jf").text(arr + 1);
+        document.getElementById("h").innerHTML = "已签到";
+    }
+</script>
+
+
+
+<script>
+    $(function () {
+        Fan();
+    })
+
+    function Fan() {
+        $.ajax({
+            url: 'http://localhost:59152/api/GetCollectInfoUpdateId',
+            type: 'post',
+            data:  @ViewBag.id,
+            contentType: 'application/json',
+            success: function (d) {
+                $("#txt_ColleName").val(d.ColleName);
+                $("#txt_ColleNation").val(d.ColleNation);
+                $("#txt_CollenHome").val(d.CollenHome);
+                $("#txt_CollePostal").val(d.CollePostal);
+                $("#txt_CollePhone").val(d.CollePhone);
+                $("#txt_UserPhone").val(d.UserPhone);
+            }
+        })
+    }
+
+    //修改
+    function Update() {
+        var arr = {};
+        arr.ColleName = $("#txt_ColleName").val();
+        arr.ColleNation = $("#txt_ColleNation").val();
+        arr.CollenHome = $("#txt_CollenHome").val();
+        arr.CollePostal = $("#txt_CollePostal").val();
+        arr.CollePhone = $("#txt_CollePhone").val();
+        arr.UserPhone = $("#txt_UserPhone").val();
+        arr.ColleID =@ViewBag.id;
+        $.ajax({
+            url: 'http://localhost:59152/api/GetCollectInfoUpdate',
+            type: 'post',
+            data: JSON.stringify(arr),
+            contentType: 'application/json',
+            success: function (d) {
+                alert(d);
+                if (d > 0) {
+                    alert("修改成功");
+                    location.href = '/Shoppingwhj/Wodedizhi';
+                }
+                else {
+                    alert("修改失败");
+                }
+            }
+        })
+    }
+</script>
