@@ -1,0 +1,101 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/layui-v2.5.6/layui/layui.js"></script>
+    <link href="~/layui-v2.5.6/layui/css/layui.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <title>tianxiedizhi</title>
+</head>
+<body>
+    <a style="color:aqua">新增收货地址</a>
+    <div>
+        <table class="table table-bordered" style="width:300px;height:153px;float:left">
+            <tbody>
+                <tr>
+                    <td>刘大友&nbsp;&nbsp;&nbsp;&nbsp;18374886024&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>编辑</a>|<a>删除</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>singapore新加坡&nbsp;&nbsp;&nbsp;&nbsp;4000215</p>
+                        <p>广东省 广州市 天河区 地中海大酒店</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered" style="width:300px;height:153px;float:left;margin-left:10px">
+            <tbody>
+                <tr>
+                    <td>刘大友&nbsp;&nbsp;&nbsp;&nbsp;18374886024&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>编辑</a>|<a>删除</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>singapore新加坡&nbsp;&nbsp;&nbsp;&nbsp;4000215</p>
+                        <p>广东省 广州市 天河区 地中海大酒店</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr />
+    <table class="table table-borderless">
+        <tr>
+            <td>
+                出货渠道<select id="Select1">
+                    <option>请选择</option>
+
+                </select>
+            </td>
+            <td>
+                付款方式<select id="Select1">
+                    <option>到付</option>
+
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                送货渠道<select id="Select1">
+                    <option>自提</option>
+
+                </select>
+            </td>
+            <td>
+                代收货款<input id="Text1" type="text" placeholder="0.00" />
+                <select id="Select1">
+                    <option>￥</option>
+                    <option>$</option>
+
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                选择自提点<input id="Checkbox1" type="checkbox" />岗顶自提点<input id="Checkbox1" type="checkbox" />地中海自提点
+            </td>
+            <td>
+                <input id="Checkbox1" type="checkbox" />尚品天河自提点<input id="Checkbox1" type="checkbox" />尚品天河自提点
+            </td>
+        </tr>
+        <tr>
+            <td>
+                备注<input id="Text1" type="text" placeholder="请输入备注" />
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    <label>增值服务&nbsp;&nbsp;<input id="Checkbox1" type="checkbox" />文件费(<label style="color:red">1.00</label>元/件)&nbsp;&nbsp;<input id="Checkbox1" type="checkbox" />打包费(<label style="color:red">1.00</label>元/件)&nbsp;&nbsp;<input id="Checkbox1" type="checkbox" />垫付运费(<label style="color:red">1.00</label>元/件)&nbsp;&nbsp;<input id="Checkbox1" type="checkbox" />单独报关(<label style="color:red">1.00</label>元/件)&nbsp;&nbsp;<input id="Checkbox1" type="checkbox" />同行代收(<label style="color:red">1.00</label>元/件)</label>
+    <hr />
+    <input id="Radio1" type="radio" />自动使用优惠券
+    <p>运费预估:<h2 style="color:red">￥20.00</h2></p>
+    <button type="button" class="layui-btn layui-btn-normal" style="float:right">百搭按钮</button>
+</body>
+</html>
