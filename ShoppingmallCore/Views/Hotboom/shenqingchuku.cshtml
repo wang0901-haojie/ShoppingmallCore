@@ -129,7 +129,7 @@
             <table class="table table-bordered">
                 <tbody id="sqck"></tbody>
             </table>
-            <button type="button" class="layui-btn layui-btn-danger">申请打包</button>
+            <button type="button" class="layui-btn layui-btn-danger" onclick="SQDB()">申请打包</button>
         </div>
 
     </div>
@@ -266,6 +266,10 @@
                 })
             }
         })
+    }
+
+    function SQDB() {
+        location.href = "http://localhost:61709/Hotboom/tianxiedizhi";
     }
 </script>
 <script>
