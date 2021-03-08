@@ -13,6 +13,11 @@ namespace ShoppingmallCore.Controllers
         {
             return View();
         }
+        //预报2
+        public IActionResult HuowuYubao()
+        {
+            return View();
+        }
         //钱包
         public IActionResult Qianbao()
         {
@@ -37,9 +42,10 @@ namespace ShoppingmallCore.Controllers
         }
 
         //我的地址 修改
-        public IActionResult WodedizhiUpdate(int id)
+        public IActionResult WodedizhiUpdate(int id,int ids)
         {
             ViewBag.id = id;
+            ViewBag.ids = ids;
             return View();
         }
 

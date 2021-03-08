@@ -277,13 +277,13 @@
                 $("#tb").empty();
                 $(d).each(function () {
                     var str = "<tr>" +
-                        "<td>" + this.colleName + "</td>" +
-                        "<td>" + this.name + "</td>" +
-                        "<td>" + this.collenHome + "</td>" +
-                        "<td>" + this.collePostal + "</td>" +
-                        "<td>" + this.collePhone + "</td>" +
-                        "<td>" + this.userPhone + "</td>" +
-                        '<td><a onclick="Update(' + this.id + ')">修改</a>&nbsp;<a onclick="del(' + this.colleID + ')">删除</a></td > ' +
+                        "<td>" + this.sName + "</td>" +
+                        "<td>" + this.sDiqu + "</td>" +
+                        "<td>" + this.sXiangxin + "</td>" +
+                        "<td>" + this.sEmile + "</td>" +
+                        "<td>" + this.sPhone + "</td>" +
+                        "<td>" + this.sgdPhone + "</td>" +
+                        '<td><a onclick="Update(' + this.sId + ')">修改</a>&nbsp;<a onclick="del(' + this.sId + ')">删除</a>&nbsp;<a>设为默认</a></td >'+
                         "</tr >";
                     $("#tb").append(str);
                 })
@@ -313,7 +313,10 @@
     }
 
     //修改
-    function Update(id) {
-        location.href = '/Shoppingwhj/WodedizhiUpdate?id=' + id;
+    function Update(sId) {
+        location.href = '/Shoppingwhj/WodedizhiUpdate?id=' + sId;
+    }
+    function Update(sId) {
+        location.href = '/Shoppingwhj/WodedizhiUpdate?ids=' + sId;
     }
 </script>

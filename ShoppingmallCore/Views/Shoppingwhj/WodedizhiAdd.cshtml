@@ -128,37 +128,37 @@
                 <tr>
                     <td>收货人</td>
                     <td>
-                        <input id="txt_ColleName" type="text" name="ColleName" />
+                        <input id="txt_ColleName" type="text" name="SName" />
                     </td>
                 </tr>
                 <tr>
                     <td>所在地区</td>
                     <td>
-                        <input id="txt_ColleNation" type="text" name="ColleNation" />
+                        <input id="txt_ColleNation" type="text" name="SDiqu" />
                     </td>
                 </tr>
                 <tr>
                     <td>详细地址</td>
                     <td>
-                        <input id="txt_CollenHome" type="text" name="CollenHome" />
+                        <input id="txt_CollenHome" type="text" name="SXiangxin" />
                     </td>
                 </tr>
                 <tr>
                     <td>邮编</td>
                     <td>
-                        <input id="txt_CollePostal" type="text" name="CollePostal" />
+                        <input id="txt_CollePostal" type="text" name="SEmile" />
                     </td>
                 </tr>
                 <tr>
                     <td>手机</td>
                     <td>
-                        <input id="txt_CollePhone" type="text" name="CollePhone" />
+                        <input id="txt_CollePhone" type="text" name="SPhone" />
                     </td>
                 </tr>
                 <tr>
                     <td>固定电话</td>
                     <td>
-                        <input id="txt_UserPhone" type="text" name="UserPhone" />
+                        <input id="txt_UserPhone" type="text" name="SGDPhone" />
                     </td>
                 </tr>
                 <tr>
@@ -291,25 +291,16 @@
 </script>
 
 
-
-
-
-
-
-
-
-
-
 <script>
     //新增
     function Add() {
         var arr = {};
-        arr.ColleName = $("#txt_ColleName").val();
-        arr.ColleNation = $("#txt_ColleNation").val();
-        arr.CollenHome = $("#txt_CollenHome").val();
-        arr.CollePostal = $("#txt_CollePostal").val();
-        arr.CollePhone = $("#txt_CollePhone").val();
-        arr.UserPhone = $("#txt_UserPhone").val();
+        arr.SName = $("#txt_ColleName").val();
+        arr.SDiqu = $("#txt_ColleNation").val();
+        arr.SXiangxin = $("#txt_CollenHome").val();
+        arr.SEmile = $("#txt_CollePostal").val();
+        arr.SPhone = $("#txt_CollePhone").val();
+        arr.SGDPhone = $("#txt_UserPhone").val();
         $.ajax({
             url: 'http://localhost:59152/api/GetCollectInfoAdd',
             type: 'post',

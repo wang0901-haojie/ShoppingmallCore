@@ -136,7 +136,7 @@
             </div>
             <br />
             <br />
-            <div style="width:500px;height:130px">
+            <div style="width:500px;height:130px" >
             </div>
             <br />
             <br />
@@ -276,14 +276,13 @@
                 $("#tb").empty();
                 $(d).each(function () {
                     var str = "<div style='width: 499px; height: 49px'>" +
-                        '<input id = "Checkbox1" class="cka" value="' + this.goodID + '" type = "checkbox" onclick="Alll()"/> 店铺：' + this.goodContent + '' +
+                        '<input id = "Checkbox1" class="cka" value="' + this.goodID + '" type = "checkbox" onclick="Alll()"/> 店铺：' + this.dName + '' +
                         "<span> ______________________________________________________________________________</span>" +
                         "</div>" +
                         "<div style='width:499px;height:130px;background-color:gainsboro'>" +
                         '<input id = "Checkbox2" class="cka2" value="' + this.goodID + '" type = "checkbox" />' +
-                        "<img src='" + this.goodImage + "' style='margin-left:100px' /><span><br />" + this.goodRemark + "<span style='color:red'>" + this.goodPrice + "</span></span>" +
+                        "<img src='" + this.goodImg + "' style='margin-left:100px;width: 150px; height: 100px' /><span><br />" + this.goodName + "<span style='color:red'>" + this.goodSum + "</span></span>" +
                         "<a style='color: cornflowerblue'>查看详情</a>&nbsp;&nbsp;&nbsp;&nbsp;<a style='color: cornflowerblue' onclick='Shanchu(" + this.goodID + ")'>删除</a>" +
-                        "<span>______________________________________________________________________________</span>" +
                         "</div>";
                     $("#tb").append(str);
                 })
@@ -298,8 +297,10 @@
             data: { id: id },
             contentType: 'application/json',
             success: function (d) {
+                alert(d);
                 if (d > 0) {
                     alert("删除成功");
+                    location.href = '/Shoppingwhj/Shouchang';
                 }
                 else {
                     alert("删除失败");
@@ -308,13 +309,17 @@
         })
     }
 
+
+
     //全选（大）
     function All() {
         if ($("#ck").prop("checked")) {
             $(".cka").prop("checked", true)
+            $(".cka2").prop("checked", true)
         }
         else {
             $(".cka").prop("checked", false)
+            $(".cka2").prop("checked", false)
         }
     }
     //全选（小）
@@ -328,7 +333,7 @@
     }
     //批量删除
     function dels() {
-        var arr=[];
+        var arr = [];
         $(".cka:checked").each(function () {
             if ($(".cka").prop("checked")) {
                 arr.push($(this).val())
@@ -338,14 +343,17 @@
             alert("请至少选择一个进行操作");
         }
         var ids = arr.toString();
+        alert(ids);
         $.ajax({
-            url: 'http://localhost:59152/api/GetGoodInfosSCDels',
-            data: { ids: ids },
+            url: 'http://localhost:59152/api/GetGoodInfosSCDels?ids='+ids,
             type: 'post',
+            //data: { ids: ids },
             contentType: 'application/json',
             success: function (d) {
+                
                 if (d > 0) {
                     alert("删除成功");
+                    location.href = '/Shoppingwhj/Shouchang';
                 }
                 else {
                     alert("删除失败");

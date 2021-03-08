@@ -127,41 +127,41 @@
         <div style="width:600px;float:left;margin-top:-300px;margin-left:10px">
             <form action="/" id="froms" enctype="multipart/form-data" method="post">
 
-                <table>
+                <table class="table">
                     <tr>
                         <td>收货人</td>
                         <td>
-                            <input id="txt_ColleName" type="text" name="ColleName" />
+                            <input id="txt_ColleName" type="text" name="SName" />
                         </td>
                     </tr>
                     <tr>
                         <td>所在地区</td>
                         <td>
-                            <input id="txt_ColleNation" type="text" name="ColleNation" />
+                            <input id="txt_ColleNation" type="text" name="SDiqu" />
                         </td>
                     </tr>
                     <tr>
                         <td>详细地址</td>
                         <td>
-                            <input id="txt_CollenHome" type="text" name="CollenHome" />
+                            <input id="txt_CollenHome" type="text" name="SXiangxin" />
                         </td>
                     </tr>
                     <tr>
                         <td>邮编</td>
                         <td>
-                            <input id="txt_CollePostal" type="text" name="CollePostal" />
+                            <input id="txt_CollePostal" type="text" name="SEmile" />
                         </td>
                     </tr>
                     <tr>
                         <td>手机</td>
                         <td>
-                            <input id="txt_CollePhone" type="text" name="CollePhone" />
+                            <input id="txt_CollePhone" type="text" name="SPhone" />
                         </td>
                     </tr>
                     <tr>
                         <td>固定电话</td>
                         <td>
-                            <input id="txt_UserPhone" type="text" name="UserPhone" />
+                            <input id="txt_UserPhone" type="text" name="SGDPhone" />
                         </td>
                     </tr>
                     <tr>
@@ -170,6 +170,7 @@
                             <input id="Button1" type="button" value="修改" onclick="Update()" />
                         </td>
                     </tr>
+                    <tbody id="tb"></tbody>
                 </table>
             </form>
         </div>
@@ -298,43 +299,26 @@
 
 <script>
     $(function () {
-        Fan();
+        Show();
     })
 
-    function Fan() {
-        $.ajax({
-            url: 'http://localhost:59152/api/GetCollectInfoUpdateId',
-            type: 'post',
-            data:  @ViewBag.id,
-            contentType: 'application/json',
-            success: function (d) {
-                $("#txt_ColleName").val(d.ColleName);
-                $("#txt_ColleNation").val(d.ColleNation);
-                $("#txt_CollenHome").val(d.CollenHome);
-                $("#txt_CollePostal").val(d.CollePostal);
-                $("#txt_CollePhone").val(d.CollePhone);
-                $("#txt_UserPhone").val(d.UserPhone);
-            }
-        })
-    }
 
     //修改
     function Update() {
         var arr = {};
-        arr.ColleName = $("#txt_ColleName").val();
-        arr.ColleNation = $("#txt_ColleNation").val();
-        arr.CollenHome = $("#txt_CollenHome").val();
-        arr.CollePostal = $("#txt_CollePostal").val();
-        arr.CollePhone = $("#txt_CollePhone").val();
-        arr.UserPhone = $("#txt_UserPhone").val();
-        arr.ColleID =@ViewBag.id;
+        arr.SName = $("#txt_ColleName").val();
+        arr.SDiqu = $("#txt_ColleNation").val();
+        arr.SXiangxin = $("#txt_CollenHome").val();
+        arr.SEmile = $("#txt_CollePostal").val();
+        arr.SPhone = $("#txt_CollePhone").val();
+        arr.SGDPhone = $("#txt_UserPhone").val();
+        arr.SId =@ViewBag.id;
         $.ajax({
             url: 'http://localhost:59152/api/GetCollectInfoUpdate',
             type: 'post',
             data: JSON.stringify(arr),
             contentType: 'application/json',
             success: function (d) {
-                alert(d);
                 if (d > 0) {
                     alert("修改成功");
                     location.href = '/Shoppingwhj/Wodedizhi';
@@ -342,6 +326,66 @@
                 else {
                     alert("修改失败");
                 }
+            }
+        })
+    }
+
+
+    function Show() {
+        var arr = {};
+        arr.SId =@ViewBag.ids;
+        $.ajax({
+            url: 'http://localhost:59152/api/GetCollectInfoUpdateId',
+            type: 'post',
+            data: JSON.stringify(arr.SId),
+            contentTye: 'application/json',
+            success: function (d) {
+                $("#tb").empty();
+                $(d).each(function () {
+                    var str = "<tr>"+
+                        "<td> 收货人</td>"+
+                        "<td>" +
+                        "<input id='txt_ColleName' type='text' name='SName' value=" + this.sName + " />" +
+                            "</td>"+
+                    "</tr >"+
+                    "<tr>"+
+                        "<td>所在地区</td>"+
+                        "<td>"+
+                        "<input id='txt_ColleNation' type='text' name='SDiqu' value=" + this.sDiqu +" />"+
+                        "</td>"+
+                    "</tr>"+
+                    "<tr>"+
+                        "<td>详细地址</td>"+
+                        "<td>"+
+                        "<input id='txt_CollenHome' type='text' name='SXiangxin' value=" + this.sXiangxin +"/>"+
+                        "</td>"+
+                    "</tr>"+
+                    "<tr>"+
+                        "<td>邮编</td>"+
+                        "<td>"+
+                        "<input id='txt_CollePostal' type='text' name='SEmile'  value=" + this.sEmile +"/>"+
+                        "</td>"+
+                    "</tr>"+
+                    "<tr>"+
+                        "<td>手机</td>"+
+                        "<td>"+
+                        "<input id='txt_CollePhone' type='text' name='SPhone' value=" + this.sPhone +" />"+
+                        "</td>"+
+                    "</tr>"+
+                    "<tr>"+
+                        "<td>固定电话</td>"+
+                        "<td>"+
+                        "<input id='txt_UserPhone' type='text' name='SGDPhone'  value=" + this.sgdPhone +"/>"+
+                        "</td>"+
+                    "</tr>"+
+                    "<tr>"+
+                        "<td></td>"+
+                        "<td>"+
+                            '<input id="Button1" type="button" value="修改" onclick="Update()" />'+
+                        "</td>"+
+                        "</tr>";
+                    $("#tb").append(str);
+                })
             }
         })
     }

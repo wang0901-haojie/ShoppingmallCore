@@ -129,6 +129,7 @@
                     <li class="layui-this">添加预报</li>
                     <li>批量预报</li>
                     <li>批量导入</li>
+                    <li>预报查看</li>
                 </ul>
                 <div class="layui-tab-content">
                     <div class="layui-tab-item layui-show">
@@ -136,19 +137,21 @@
                             <tr>
                                 <td>选择集货仓库</td>
                                 <td>
-                                    <select id="Selectck" name="WareName">
+                                    <select id="Selectck" name="CKName">
                                         <option></option>
                                         <option></option>
                                         <option></option>
                                     </select>
+
                                     <br /><br />
                                 </td>
                             </tr>
                             <tr>
                                 <td>快递单号</td>
                                 <td>
-                                    <input type="text" name="KId" lay-verify="title" id="txt_Danhao" autocomplete="off" placeholder="*请输入购买商品的快递单号" class="layui-input">
-                                    填写快递单号，自动识别快递公司<br /><br />
+                                    <input id="txt_Danhao" type="text" name="KudiDH" />
+                                    <input id="Button1" type="button" value="查询快递公司" onclick="Chaxunkuaidi()" />
+                                    <br /><br />
                                 </td>
                             </tr>
                             <tr>
@@ -164,46 +167,31 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>单票立刻转运</td>
+                                <td>票单立刻转运</td>
                                 <td>
-                                    <input id="Rd_S" type="radio" name="sex" value="是" title="是" checked="">是
-                                    <input id="Rd_F" type="radio" name="sex" value="否" title="否">否 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    注：若只有一件，货到仓库立即发，选“否”，多件需仓库集运待发，选“是”<br /><br />
+                                    <input id="txt_S" type="text" name="Likezhuanyun" /><br />
+                                    <br />
                                 </td>
                             </tr>
                             <tr>
                                 <td>货物信息</td>
                                 <td>
-                                    <input id="txt_Xinxi" type="text" name="GoodRemark" lay-verify="title" autocomplete="off" placeholder="复制电商平台链接自动填写货物信息" class="layui-input">
-                                    <button type="button" class="layui-btn layui-btn-normal" onclick="Chaxun()">获取信息</button><br /><br />
+                                    <input id="txt_Xinxi" type="text" name="GoodID" />
+                                    <input id="Button1" type="button" value="获取信息" onclick="Chaxun()" />
                                 </td>
                             </tr>
-                            <tr class="table table-bordered">
-                                <td>中文品名</td>
-                                <td>商品信息</td>
-                                <td>数量</td>
-                                <td>操作</td>
-                            </tr>
                             <tbody id="tb111"></tbody>
-                            <tr class="table table-bordered">
-                                <td><input id="txt_GoodName1" type="text" /></td>
-                                <td><input id="txt_GoodRemark1" type="text" /></td>
-                                <td><input id="txt_GoodNum1" type="text" /></td>
-                                <td><input id="Button1" type="button" value="删除" style="background-color:red" onclick="DelDel()" /></td>
-                            </tr>
                             <tr>
                                 <td>备注</td>
                                 <td>
-                                    <textarea placeholder="请输入内容" name="GoodContent" id="text_beizhu" class="layui-textarea"></textarea><br />
-                                    注：请备份是否需要开箱验货及其他注意事项！
-                                    <br />
+                                    <textarea id="text_beizhu" rows="2" cols="20" name="Beizhu"></textarea>
                                 </td>
                             </tr>
                             <tr>
-                                <td><button type="button" class="layui-btn layui-btn-normal" onclick="Add()">提交</button></td>
+                                <td>
+                                    <input id="Button1" type="button" value="提交" onclick="Add()" />
+                                </td>
                             </tr>
-
                         </table>
                     </div>
                     <div class="layui-tab-item">
@@ -220,126 +208,114 @@
                             <tr>
                                 <td>
                                     <select id="Selectkd1" name="KName">
-                                        <option>请选择</option>
+                                        <option></option>
+                                        <option></option>
+                                        <option></option>
                                     </select>
                                 </td>
                                 <td>
-                                    <input id="txt_danhao" type="text" placeholder="请输入快递单号" name="GoodID" />
+                                    <input id="txt_Danhao123" type="text" name="KudiDH" placeholder="请输入快递单号" />
                                 </td>
                                 <td>
-                                    <input id="txt_piming" type="text" placeholder="请输入品名" name="GoodName" />
+                                    <input id="txt_Pingming" type="text" name="Zhongwenpinm" placeholder="请输入品名" />
                                 </td>
                                 <td>
-                                    <input id="txt_huozhi" type="text" placeholder="请输入货值" name="GoodPrice" />
+                                    <input id="txt_Huozhi" type="text" name="Huozhi" placeholder="请输入货值" />
                                 </td>
                                 <td>
-                                    <input id="txt_shulinag" type="text" placeholder="请输入数量" name="GoodNum" />
+                                    <input id="txt_shuliang" type="text" name="Shuliang" placeholder="请输入数量" />
                                 </td>
                                 <td>
-                                    <input id="txt_beizhu" type="text" placeholder="请输入备注" name="GoodContent" />
+                                    <input id="txt_Beizhu" type="text" name="Beizhu" placeholder="请输入备注" />
                                 </td>
                                 <td>
-                                    <button type="button" class="layui-btn layui-btn-normal" style="background-color:red;color:white" onclick="PLybDel()">删除</button>
+                                    <input id="Button1" type="button" value="删除" onclick="Delpl()" />
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <select id="Selectkd1" name="KName">
-                                        <option>请选择</option>
+                                    <select id="Selectkd2" name="KName">
+                                        <option></option>
+                                        <option></option>
+                                        <option></option>
                                     </select>
                                 </td>
                                 <td>
-                                    <input id="txt_danhao" type="text" placeholder="请输入快递单号" name="GoodID" />
+                                    <input id="txt_Danhao" type="text" name="KudiDH" placeholder="请输入快递单号" />
                                 </td>
                                 <td>
-                                    <input id="txt_piming" type="text" placeholder="请输入品名" name="GoodName" />
+                                    <input id="txt_Pingming" type="text" name="Zhongwenpinm" placeholder="请输入品名" />
                                 </td>
                                 <td>
-                                    <input id="txt_huozhi" type="text" placeholder="请输入货值" name="GoodPrice" />
+                                    <input id="txt_Huozhi" type="text" name="Huozhi" placeholder="请输入货值" />
                                 </td>
                                 <td>
-                                    <input id="txt_shulinag" type="text" placeholder="请输入数量" name="GoodNum" />
+                                    <input id="txt_shuliang" type="text" name="Shuliang" placeholder="请输入数量" />
                                 </td>
                                 <td>
-                                    <input id="txt_beizhu" type="text" placeholder="请输入备注" name="GoodContent" />
+                                    <input id="txt_Beizhu" type="text" name="Beizhu" placeholder="请输入备注" />
                                 </td>
                                 <td>
-                                    <button type="button" class="layui-btn layui-btn-normal" style="background-color:red;color:white" onclick="PLybDel()">删除</button>
+                                    <input id="Button1" type="button" value="删除" onclick="Delpl1()" />
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <select id="Selectkd1" name="KName">
-                                        <option>请选择</option>
+                                    <select id="Selectkd3" name="KName">
+                                        <option></option>
+                                        <option></option>
+                                        <option></option>
                                     </select>
                                 </td>
                                 <td>
-                                    <input id="txt_danhao" type="text" placeholder="请输入快递单号" name="GoodID" />
+                                    <input id="txt_Danhao" type="text" name="kudiDH" placeholder="请输入快递单号" />
                                 </td>
                                 <td>
-                                    <input id="txt_piming" type="text" placeholder="请输入品名" name="GoodName" />
+                                    <input id="txt_Pingming" type="text" name="Zhongwenpinm" placeholder="请输入品名" />
                                 </td>
                                 <td>
-                                    <input id="txt_huozhi" type="text" placeholder="请输入货值" name="GoodPrice" />
+                                    <input id="txt_Huozhi" type="text" name="Huozhi" placeholder="请输入货值" />
                                 </td>
                                 <td>
-                                    <input id="txt_shulinag" type="text" placeholder="请输入数量" name="GoodNum" />
+                                    <input id="txt_shuliang" type="text" name="Shuliang" placeholder="请输入数量" />
                                 </td>
                                 <td>
-                                    <input id="txt_beizhu" type="text" placeholder="请输入备注" name="GoodContent" />
+                                    <input id="txt_Beizhu" type="text" name="Beizhu" placeholder="请输入备注" />
                                 </td>
                                 <td>
-                                    <button type="button" class="layui-btn layui-btn-normal" style="background-color:red;color:white" onclick="PLybDel()">删除</button>
+                                    <input id="Button1" type="button" value="删除" onclick="Delpl2()" />
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <select id="Selectkd1" name="KName">
-                                        <option>请选择</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <input id="txt_danhao" type="text" placeholder="请输入快递单号" name="GoodID" />
-                                </td>
-                                <td>
-                                    <input id="txt_piming" type="text" placeholder="请输入品名" name="GoodName" />
-                                </td>
-                                <td>
-                                    <input id="txt_huozhi" type="text" placeholder="请输入货值" name="GoodPrice" />
-                                </td>
-                                <td>
-                                    <input id="txt_shulinag" type="text" placeholder="请输入数量" name="GoodNum" />
-                                </td>
-                                <td>
-                                    <input id="txt_beizhu" type="text" placeholder="请输入备注" name="GoodContent" />
-                                </td>
-                                <td>
-                                    <button type="button" class="layui-btn layui-btn-normal" style="background-color:red;color:white" onclick="PLybDel()">删除</button>
+                                    <input id="Button1" type="button" value="提交" onclick="Addpl()" />
+                                    <input id="Reset1" type="reset" value="取消" />
                                 </td>
                             </tr>
                         </table>
-                        <button type="button" class="layui-btn layui-btn-normal" onclick="PLAdd()">提交</button>
-                        <input id="Reset1" type="reset" value="取消" />
                     </div>
                     <div class="layui-tab-item">
                         <table>
                             <tr>
-                                <td>上传数据</td>
-                            </tr>
-                            <tr>
                                 <td>
-                                    <input type="file" name="file" id="test20">
-                                    当前仅支持.csv .xml 等Excel格式文件（大小在500M以内），请使用Office 2010及以上版本，否则可能出现乱码,必须严格按照模版内容填入客户数据，否则可能会出现导入异常
+                                    上传数据:<input type="file" name="file" id="test20" value="添加文件"><br />
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <button type="button" class="layui-btn layui-btn-primary layui-btn-sm" >提交</button>
-                                    <button type="button" class="layui-btn layui-btn-primary layui-btn-sm">取消</button>
+                                    当前仅支持.csv .xml 等Excel格式文件（大小在500M以内），请使用Office 2010及以上版本，否则可能出现乱码<br />
+                                    必须严格按照模版内容填入客户数据，否则可能会出现导入异常
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button type="button" class="layui-btn" id="test3"><i class="layui-icon"></i>上传文件</button>
                                 </td>
                             </tr>
                         </table>
-
+                    </div>
+                    <div class="layui-tab-item">
+                        
                     </div>
                 </div>
             </div>
@@ -465,12 +441,7 @@
     }
 </script>
 
-
-
-
-
 <script>
-    //选项卡
     layui.use('element', function () {
         var $ = layui.jquery
             , element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
@@ -496,7 +467,6 @@
     layui.use('upload', function () {
         var $ = layui.jquery
             , upload = layui.upload;
-
         //绑定原始文件域
         upload.render({
             elem: '#test20'
@@ -506,32 +476,44 @@
                 console.log(res)
             }
         });
+
+        //指定允许上传的文件类型
+        upload.render({
+            elem: '#test3'
+            , url: 'https://httpbin.org/post' //改成您自己的上传接口
+            , accept: 'file' //普通文件
+            , done: function (res) {
+                layer.msg('上传成功');
+                console.log(res);
+            }
+        });
     });
+
+
 </script>
 <script>
-    //文档就绪函数
     $(function () {
         Selectck();
         Selectkd();
-        Selectkd1();
         Show();
     })
     function Add() {
         var arr = {};
-        arr.selectck = $("#Selectck").val();
-        arr.danhao = $("#txt_Danhao").val();
-        arr.rd_S = $("#Rd_S").val();
-        arr.xinxi = $("#txt_Xinxi").val();
-        arr.beizhu = $("#text_beizhu").val();
+        arr.KudiDH = $("#txt_Danhao").val();
+        arr.Likezhuanyun = $("#txt_S").val();
+        arr.Zhongwenpinm = $("#txt_GoodName1").val();
+        arr.Huozhi = $("#txt_GoodRemark1").val();
+        arr.Shuliang = $("#txt_GoodNum1").val();
+        arr.Beizhu = $("#text_beizhu").val();
         $.ajax({
-            url: 'http://localhost:59152/api/GetGoodInfoAdd',
+            url: 'http://localhost:59152/api/GetHuowuyubaoAdd',
             type: 'post',
             data: JSON.stringify(arr),
             contentType: 'application/json',
-            success: function (d) {1
+            success: function (d) {
                 if (d > 0) {
                     alert("添加成功");
-                    location.href = '/Shoppingwhj/Yubao';
+                    location.href = '/Shoppingwhj/HuowuYubao';
                 }
                 else {
                     alert("添加失败");
@@ -539,6 +521,7 @@
             }
         })
     }
+
 
     //仓库下拉
     function Selectck() {
@@ -550,7 +533,7 @@
                 $("#Selectck").empty();
                 $("#Selectck").append('<option>请选择</option>');
                 $(d).each(function () {
-                    var str = "<option value=" + this.wareID + ">" + this.wareName + "</option>";
+                    var str = "<option value=" + this.ckId + ">" + this.ckName + "</option>";
                     $("#Selectck").append(str);
                 })
             }
@@ -573,8 +556,66 @@
             }
         })
     }
-    //批量预报 快递下拉
-    function Selectkd1() {
+
+    //查询
+    function Chaxun() {
+        var id = $("#txt_Xinxi").val();
+        $.ajax({
+            url: 'http://localhost:59152/api/GetGoodInfoAddCX',
+            type: 'get',
+            data: { id: id },
+            contentType: 'application/json',
+            success: function (d) {
+                $("#tb111").empty();
+                $(d).each(function () {
+                    var str = "<tr>" +
+                        "<tr class='table table-bordered'>" +
+                        "<td>中文品名</td>" +
+                        "<td>货值</td>" +
+                        "<td>数量</td>" +
+                        "<td>操作</td>" +
+                        "</tr>" +
+                        "<tr class='table table-bordered'>" +
+                        "<td><input id='txt_GoodName1' type='text' name='Zhongwenpinm' value='" + this.goodName + "' /></td>" +
+                        "<td><input id='txt_GoodRemark1' type='text' name='Huozhi'  value='" + this.goodPrice + "'/></td>" +
+                        "<td><input id='txt_GoodNum1' type='text' name='Shuliang'  value='" + this.goodNum + "'/></td>" +
+                        "</tr>" +
+                        "</tr >";
+                    $("#tb111").append(str);
+                })
+            }
+        })
+    }
+
+    function Chaxunkuaidi() {
+        var Danhao = $("#txt_Danhao").val();
+        $.ajax({
+            url: 'http://localhost:59152/api/GetKuaidiInfoAddCX',
+            data: { KDanhao: Danhao },
+            type: 'get',
+            contentType: 'application/json',
+            success: function (d) {
+                $("#Selectkd").empty();
+                $(d).each(function () {
+                    $("#Selectkd").empty();
+                    $("#Selectkd").append('<option>请选择</option>');
+                    $(d).each(function () {
+                        var str = "<option value=" + this.kId + ">" + this.kName + "</option>";
+                        $("#Selectkd").append(str);
+                    })
+                })
+            }
+        })
+    }
+</script>
+<script>
+    $(function () {
+        Selectkd();
+        Selectkd1();
+        Selectkd2();
+    })
+    //包裹预报  快递下拉
+    function Selectkd() {
         $.ajax({
             url: 'http://localhost:59152/api/GetGoodInfoAddXiala',
             type: 'get',
@@ -589,88 +630,54 @@
             }
         })
     }
-
-    //显示
-    function Show() {
+    //包裹预报  快递下拉
+    function Selectkd1() {
         $.ajax({
-            url: 'http://localhost:59152/api/GetGoodInfoAddShow',
+            url: 'http://localhost:59152/api/GetGoodInfoAddXiala',
             type: 'get',
             contentType: 'application/json',
             success: function (d) {
-                $("#tb111").empty();
+                $("#Selectkd2").empty();
+                $("#Selectkd2").append('<option>请选择</option>');
                 $(d).each(function () {
-                    var str = "<tr>" +
-                        "<td>" + this.goodName + "</td>" +
-                        "<td>" + this.goodWeight + "</td>" +
-                        "<td>" + this.goodNum + "</td>" +
-                        "</tr >";
-                    $("#tb111").append(str);
+                    var str = "<option value=" + this.kId + ">" + this.kName + "</option>";
+                    $("#Selectkd2").append(str);
                 })
             }
         })
     }
-
-    //查询
-    function Chaxun() {
-        var id = $("#txt_Xinxi").val();
+    //包裹预报  快递下拉
+    function Selectkd2() {
         $.ajax({
-            url: 'http://localhost:59152/api/GetGoodInfoAddCX',
+            url: 'http://localhost:59152/api/GetGoodInfoAddXiala',
             type: 'get',
-            data: { id: id },
             contentType: 'application/json',
             success: function (d) {
-                $("#tb111").empty();
+                $("#Selectkd3").empty();
+                $("#Selectkd3").append('<option>请选择</option>');
                 $(d).each(function () {
-                    var str = "<tr>" +
-                        "<td>" + this.goodName + "</td>" +
-                        "<td>" + this.goodWeight + "</td>" +
-                        "<td>" + this.goodNum + "</td>" +
-                        "</tr >";
-                    $("#tb111").append(str);
+                    var str = "<option value=" + this.kId + ">" + this.kName + "</option>";
+                    $("#Selectkd3").append(str);
                 })
             }
         })
     }
-
-    //小框删除
-    function DelDel() {
+    function Addpl() {
         var arr = {};
-        arr.name = $("#txt_GoodName1").val();
-        arr.remark = $("#txt_GoodRemark1").val();
-        arr.num = $("#txt_GoodNum1").val();
-        alert(JSON.stringify(arr))
-        console.log(arr)
-        $.ajax({
-            url: 'http://localhost:59152/api/GetGoodInfoDel?name=' + arr.name + '&remark=' + arr.remark + '&num=' + arr.num,
-            type: 'post',
-            contentType: 'application/json',
-            success: function (d) {
-                if (d > 0) {
-                    alert("删除成功");
-                }
-                else {
-                    alert("删除失败");
-                }
-            }
-        })
-    }
-
-    //批量预报 批量添加
-    function PLAdd() {
-        var arr = {};
-        arr.danhao = $("#txt_danhao").val();
-        arr.piming = $("#txt_piming").val();
-        arr.huozhi = $("#txt_huozhi").val();
-        arr.shuliang = $("#txt_shulinag").val();
-        arr.beizhu = $("#txt_beizhu").val();
+        arr.Zhongwenpinm = $("#txt_Pingming").val();
+        arr.Huozhi = $("#txt_Huozhi").val();
+        arr.Shuliang = $("#txt_shuliang").val();
+        arr.KudiDH = $("#txt_Danhao123").val();
+        arr.Beizhu = $("#txt_Beizhu").val();
         $.ajax({
             url: 'http://localhost:59152/api/GetGoodInfoPLAdd',
-            type: 'post',
             data: JSON.stringify(arr),
+            type: 'post',
             contentType: 'application/json',
             success: function (d) {
                 if (d > 0) {
                     alert("添加成功");
+                    location.href = '/Shoppingwhj/HuowuYubao';
                 }
                 else {
                     alert("添加失败");
@@ -679,23 +686,22 @@
         })
     }
 
-
-
-    //批量预报 删除
-    function PLybDel() {
+    function Delpl() {
         var arr = {};
-        arr.danhao = $("#txt_danhao").val();
-        arr.piming = $("#txt_piming").val();
-        arr.huozhi = $("#txt_huozhi").val();
-        arr.shuliang = $("#txt_shulinag").val();
-        arr.beizhu = $("#txt_beizhu").val();
+        arr.Zhongwenpinm = $("#txt_Pingming").val();
+        arr.Huozhi = $("#txt_Huozhi").val();
+        arr.Shuliang = $("#txt_shuliang").val();
+        arr.KudiDH = $("#txt_Danhao123").val();
+        arr.Beizhu = $("#txt_Beizhu").val();
         $.ajax({
-            url: 'http://localhost:59152/api/GetGoodInfoPLDel?id=' + arr.danhao + '&goodname=' + arr.piming + '&goodprice=' + arr.huozhi + '&goodnum=' + arr.shuliang + '&goodcontent=' + arr.beizhu,
+            url: 'http://localhost:59152/api/GetGoodInfoPLDel?KudiDH=' + arr.KudiDH + "&Zhongwenpinm=" + arr.Zhongwenpinm + "&Huozhi=" + arr.Huozhi + "&Shuliang=" + arr.Shuliang + "&Beizhu=" + arr.Beizhu,
+            data: JSON.stringify(arr),
             type: 'post',
             contentType: 'application/json',
             success: function (d) {
                 if (d > 0) {
                     alert("删除成功");
+                    location.href = '/Shoppingwhj/HuowuYubao';
                 }
                 else {
                     alert("删除失败");
